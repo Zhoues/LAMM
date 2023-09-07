@@ -53,7 +53,7 @@ def parse_args():
     
     if args.vision_feature_type == 'local':
         args.vision_output_layer = -2
-        args.num_vision_token = 256
+        # args.num_vision_token = 256
     elif args.vision_feature_type == 'global':
         args.vision_output_layer = -1
         args.num_vision_token = 1

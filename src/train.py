@@ -49,7 +49,7 @@ def parser_args():
         "--encoder_pretrain",
         type=str,
         default="clip",
-        choices=("clip", "epcl"),
+        choices=("clip", "epcl", "mineclip"),
         help="Vision Pretrain Model",
     )
     parser.add_argument(
@@ -129,7 +129,7 @@ def parser_args():
     assert not (args.use_flash_attn and args.use_xformers), 'can only use one of flash attn and xformers.'
 
     if args.vision_feature_type == "local":
-        args.num_vision_token = 256
+        # args.num_vision_token = 256
         args.vision_output_layer = -2
     elif args.vision_feature_type == "global":
         args.num_vision_token = 1

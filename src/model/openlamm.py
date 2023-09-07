@@ -11,7 +11,7 @@ from header import *
 from transformers import StoppingCriteria, StoppingCriteriaList
 
 from .CLIP import load as load_clip
-from .EPCL import build_epcl_encoder
+from .MINECLIP import load as load_mineclip
 
 from .modeling_lightllm import LlamaLightForCausalLM
 from .modeling_llama import LlamaForCausalLM
@@ -190,6 +190,7 @@ class LAMMPEFTModel(nn.Module):
         assert encoder_pretrain in [
             "clip",
             "epcl",
+            "mineclip",
         ], f"Encoder_pretrain: {encoder_pretrain} Not Implemented"
         encoder_ckpt_path = (
             args["encoder_ckpt_path"]
@@ -225,7 +226,18 @@ class LAMMPEFTModel(nn.Module):
                 self.num_vision_token = min(
                     self.num_vision_token, 256
                 )  # may cut partial tokens
-
+        elif self.encoder_pretrain.lower() == "mineclip":
+            self.visual_encoder, self.visual_preprocess = load_mineclip(encoder_ckpt_path=encoder_ckpt_path, device=device)
+            if self.vision_feature_type == "global":  # global feature from CLIP
+                # self.vision_hidden_size = 768
+                # self.num_vision_token = 1
+                # assert self.num_vision_token == 1, "Only 1 global token is available!"
+                raise NotImplementedError("Global feature not implemented for MINECLIP")
+            elif self.vision_feature_type == "local":  # patch features from MINECLIP ViT
+                self.vision_hidden_size = 768
+                self.num_vision_token = min(
+                    self.num_vision_token, 196
+                )  # may cut partial tokens
         elif self.encoder_pretrain.lower() == "epcl":
             # PCL data Processing
             self.use_color = (
@@ -306,7 +318,7 @@ class LAMMPEFTModel(nn.Module):
         :param tupe image_paths: (bsz, )
         :return tensor, tensor: input feature to llama, attention mask to llama
         """
-        if self.encoder_pretrain == "clip":
+        if self.encoder_pretrain == "clip" or self.encoder_pretrain == "mineclip":
             inputs = self.load_and_transform_image_data_clip(
                 image_paths, self.device
             )  # bsz x 3 x 224 x 224
@@ -321,7 +333,7 @@ class LAMMPEFTModel(nn.Module):
 
     def encode_image_object(self, images):
         """encoder loaded image objects"""
-        if self.encoder_pretrain == "clip":
+        if self.encoder_pretrain == "clip" or self.encoder_pretrain == "mineclip":
             inputs = transform_vision_data(
                 images, self.device
             )  # bsz x 3 x 224 x 224
