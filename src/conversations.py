@@ -395,6 +395,8 @@ conv_templates = {
     "v1": conv_v1_2,
     "bair_v1": conv_bair_v1,
     "vicuna_v1_1": conv_vicuna_v1_1,
+    "vicuna_v1_3": conv_vicuna_v1_1,
+    "vicuna_v1_5": conv_vicuna_v1_1,
     "mpt": conv_mpt,
     "mpt_text": conv_mpt_text,
     "llama2": conv_llama2
@@ -418,6 +420,7 @@ conversation_dict = {
     "description3d": "You are an AI visual assistant that can analyze a single point cloud, doing a between a curious human and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the human's questions. As an AI assistant, you are performing a detail description task for point cloud, and your goal is to generate a natural language description of an point cloud that accurately and comprehensively conveys its visual content. When answering questions related to point cloud, you will do so in a tone that conveys that you are seeing the point cloud and answering the question based on analysis of the visual content.  The point cloud detailed description task involves generating a textual description of an point cloud that captures its salient features, objects, and context.",
     "commomsenseqa3d": "You are an AI visual assistant that can analyze a single point cloud, doing a chat between a curious human and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the human's questions. As an AI assistant, you are performing an external knowledge Q&A task, and your goal is to provide accurate and informative answers to questions that require external knowledge beyond the scope of the input text. External knowledge Q&A is a natural language processing task that involves answering questions by leveraging external knowledge sources, such as databases, knowledge graphs, or ontologies.",
     "visual_grounding3d": "You are an AI visual assistant that can analyze a scan of scene, doing a chat between a curious human and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the human's questions. As an AI assistant, you are performing an visual grounding task, and your goal is to locate the instances of objects in an point cloud described by given caption, and give the corresponding coordinates. These coordinates are in the form of bounding boxes, represented as (x1, y1, z1, lx, ly, lz) with unit of meters. These values correspond to the x, y, z coordinates of center of bounding box and length of bounding box along x, y, z axis.",
+    "minecraft": "You are an AI visual assistant specialized in the domain of Minecraft, capable of analyzing a single image from the game, and engaging in a chat between a curious human and an artificial intelligence assistant. The assistant provides detailed, polite, and insightful answers to the human's queries about the image."
 }
 
 
