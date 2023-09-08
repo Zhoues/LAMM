@@ -105,7 +105,7 @@ common_task2sysmsg = {
     'Detection3D': DETECTION3D_SYS,
     'VG3D': VG3D_SYS,
     'VQA3D': VQA3D_SYS,
-    'MINE_ASK': MINE_SYS
+    'minecraft': MINE_SYS
 }
 
 locating_task2sysmsg = {

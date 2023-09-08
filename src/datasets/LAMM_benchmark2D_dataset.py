@@ -17,7 +17,7 @@ common_dataset2task = {
     'CelebA(Hair)': 'Facial_Classification',
     'AI2D': 'VQA',
     'LSP':'Keypoints_Detection',
-    'MINE_ASK': 'MINE_ASK',
+    'minecraft': 'minecraft',
 }
 
 locating_dataset2task = {
