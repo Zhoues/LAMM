@@ -29,5 +29,6 @@ ckpt3d/
 data
 datasets
 model_zoo
+images
 
 # package related
