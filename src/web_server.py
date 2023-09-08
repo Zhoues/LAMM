@@ -79,7 +79,7 @@ def predict(
         'temperature': temperature,
         'max_tgt_len': max_length,
         'modality_embeds': modality_cache
-    })
+    }, is_web_server=True)
     # chatbot.append((parse_text(input), parse_text(response)))
     history.append((input, response))
     return chatbot, history, modality_cache, time.time() - start
@@ -133,7 +133,14 @@ for key, value in model_arg_dict.items():
 
 args = parser.parse_args()
 
+# load model
 model = LAMMPEFTModel(**args.__dict__)
+delta_ckpt = torch.load(args.delta_ckpt_path, map_location=torch.device('cpu'))
+model.load_state_dict(delta_ckpt, strict=False)
+print(f'[!] merging LoRA weights ...')
+model = model.eval().half().cuda()
+Visualization(model).structure_graph()
+print(f'[!] init the LLM over ...')
 
 if os.path.isfile(args.delta_ckpt_path):
         print("[!] Loading delta checkpoint: {}...".format(args.delta_ckpt_path))
@@ -144,7 +151,7 @@ elif args.force_test:
 else:
     raise ValueError("delta checkpoint not exists!")
 
-model = model = model.eval().half().cuda()
+model= model.eval().half().cuda()
 
 
 UPLOAD_FOLDER = model_arg_dict['vision_root_path']

@@ -602,7 +602,7 @@ class LAMMPEFTModel(nn.Module):
         )  # sum all modality features together
         return feature_embeds
 
-    def prepare_generation_embedding(self, inputs):
+    def prepare_generation_embedding(self, inputs, is_web_server):
         """prepare for generation
 
         :param class inputs: model
@@ -624,11 +624,19 @@ class LAMMPEFTModel(nn.Module):
         p_before_tokens = self.llama_tokenizer(
             p_before, return_tensors="pt", add_special_tokens=False
         ).to(self.device)
-        p_before_embeds = self.llama_model.model.model.embed_tokens(
-            p_before_tokens.input_ids
-        ).expand(
-            batch_size, -1, -1
-        )  # bsz x s1 x embed_dim
+
+        if is_web_server:
+            p_before_embeds = self.llama_model.model.model.embed_tokens(
+                p_before_tokens.input_ids
+            ).expand(
+                batch_size, -1, -1
+            )  # bsz x s1 x embed_dim
+        else:
+            p_before_embeds = self.llama_model.model.embed_tokens(
+                p_before_tokens.input_ids
+            ).expand(
+                batch_size, -1, -1
+            )  # bsz x s1 x embed_dim
 
         p_after_texts = [f"{eov} " + prompt + f"\n{self.conv_template.sep} {self.conv_template.roles[1]}:" for prompt in prompt_list]
         p_after_tokens = self.llama_tokenizer(
@@ -637,7 +645,11 @@ class LAMMPEFTModel(nn.Module):
             add_special_tokens=False, return_tensors="pt"
         ).to(self.device)
         p_after_masks_len = p_after_tokens.length.max() - p_after_tokens.length
-        p_after_embeds = self.llama_model.model.model.embed_tokens(p_after_tokens.input_ids)
+
+        if is_web_server:
+            p_after_embeds = self.llama_model.model.model.embed_tokens(p_after_tokens.input_ids)
+        else:
+            p_after_embeds = self.llama_model.model.embed_tokens(p_after_tokens.input_ids)
 
         bos = (
             torch.ones(
@@ -647,9 +659,15 @@ class LAMMPEFTModel(nn.Module):
             )
             * self.llama_tokenizer.bos_token_id
         )  # bsz x 1
-        bos_embeds = self.llama_model.model.model.embed_tokens(
-            bos
-        )  # bsz x 1 x embed_dim
+
+        if is_web_server:
+            bos_embeds = self.llama_model.model.model.embed_tokens(
+                bos
+            )  # bsz x 1 x embed_dim
+        else:
+            bos_embeds = self.llama_model.model.embed_tokens(
+                bos
+            )  # bsz x 1 x embed_dim
 
         inputs_embeds = torch.cat(
             [bos_embeds, p_before_embeds, feature_embeds, p_after_embeds], dim=1
@@ -669,7 +687,7 @@ class LAMMPEFTModel(nn.Module):
 
         return new_inputs_embeds, inputs_embeds_masks
 
-    def generate(self, inputs):
+    def generate(self, inputs, is_web_server=False):
         """
         inputs = {
             'image_paths': optional,
@@ -682,7 +700,7 @@ class LAMMPEFTModel(nn.Module):
             'modality_cache': save the image cache
         }
         """
-        input_embeds, input_masks = self.prepare_generation_embedding(inputs)
+        input_embeds, input_masks = self.prepare_generation_embedding(inputs, is_web_server)
         stopping_criteria = StoppingCriteriaList(
             [LAMMStoppingCriteria([[2277, 29937], [835], [1, 2]], input_embeds)]            # TODO: different template has corresponding end signal [sep2]
         )

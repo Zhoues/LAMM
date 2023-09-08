@@ -20,4 +20,4 @@ def transform_json(input_file, output_file):
         json.dump(transformed_data, f, ensure_ascii=False, indent=4)
 
 transform_json('../datasets/2D_Instruct/LAMM_MineClip_36k/LAMM_MineClip_36k_instruct_simple_reply.json', 
-               '../datasets/2D_Benchmark/meta_file/minecratf_minecraft.json')
+               '../datasets/2D_Benchmark/meta_file/minecraft_minecraft.json')
