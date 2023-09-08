@@ -12,5 +12,5 @@ srun -p ${partition} --gres=gpu:1 --ntasks-per-node=1 --kill-on-bad-exit \
     --vision_feature_type local \
     --vision_output_layer -2 \
     --num_vision_token 196 \
-    --conv_mode vicuna_v1_1 \
+    --conv_mode default \
     --task_type minecraft

@@ -19,7 +19,7 @@ def parse_args():
         "--encoder_pretrain",
         type=str,
         default="clip",
-        choices=("clip", "epcl"),
+        choices=("clip", "epcl", "mineclip"),
         help="Vision Pretrain Model",
     )
     parser.add_argument(

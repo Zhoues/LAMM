@@ -96,9 +96,11 @@ def make_input_dict(args, vision_path):
 
 
 # WARNING: Remenber to update [delta_ckpt_path], [llm_ckpt_path], conv_mode, task_type and vision_root_path
+# 'conv_mode': 'vicuna_v1_1',
+# 'conv_mode': 'default',
 model_arg_dict = {
     'answer_file': '../answers/answer.txt',
-    'conv_mode': 'vicuna_v1_1',
+    'conv_mode': 'default',
     'delta_ckpt_path': '../ckpt/LAMM_MineClip_36k_Vicuna_13b_v0/pytorch_model.pt',
     'detail_log': False,
     'encoder_ckpt_path': '../model_zoo/mineclip_ckpt/mineclip_image_encoder_vit-B_196tokens.pth',
