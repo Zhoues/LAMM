@@ -95,7 +95,7 @@ def make_input_dict(args, vision_path):
     return input_dict
 
 
-# WARNING: Remenber to update [delta_ckpt_path], [llm_ckpt_path], conv_mode, task_type and vision_root_path
+# WARNING: Remenber to update [delta_ckpt_path], [llm_ckpt_path], [conv_mode], [task_type] and [vision_root_path]
 # 'conv_mode': 'vicuna_v1_1',
 # 'conv_mode': 'default',
 model_arg_dict = {
