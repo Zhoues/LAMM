@@ -17,8 +17,8 @@ srun -p ${partition} -J ${exp} --gres=gpu:${numgpu} --ntasks-per-node 1 --kill-o
 torchrun --nnodes=1 --nproc_per_node=${numgpu} --master_port=25440 train.py \
     --stage 1 \
     --cfg ./config/train.yaml \
-    --data_path  ../datasets/${dataname}/${dataname}_instruct.json \
-    --vision_root_path ../datasets/${dataname}/${dataname}_image/ \
+    --data_path  ../datasets/2D_Instruct/${dataname}/${dataname}_instruct.json \
+    --vision_root_path ../datasets/2D_Instruct/${dataname}/${dataname}_image/ \
     --conv_template llama2 \
     --max_tgt_len 400 \
     --vision_type image \

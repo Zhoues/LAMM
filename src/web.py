@@ -145,7 +145,6 @@ else:
 model = model = model.eval().half().cuda()
 
 
-# 定义图片文件夹路径
 UPLOAD_FOLDER = model_arg_dict['vision_root_path']
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
