@@ -240,7 +240,7 @@ def main(**args):
     # save at the end of the training
     torch.distributed.barrier()
     agent.save_model(args["save_path"], 0)
-
+    print(f"Total Avg Token Acc: {round(sum(agent.token_acc) / len(agent.token_acc), 2)}%")
     print(f"Done! Total Training time: {time.time() - start_time}")
 
 

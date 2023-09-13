@@ -26,6 +26,7 @@ class DeepSpeedAgent:
             dist_init_required=True,
             args=types.SimpleNamespace(**args),
         )
+        self.token_acc = []
 
     @torch.no_grad()
     def predict(self, batch):
@@ -59,6 +60,7 @@ class DeepSpeedAgent:
             )
 
         mle_acc *= 100
+        self.token_acc.append(mle_acc)
         return mle_acc
 
     def save_model(self, path, current_step):
