@@ -25,7 +25,7 @@ def parse_args():
     parser.add_argument('--encoder_pretrain', type=str, default='epcl')
     parser.add_argument('--encoder_ckpt_path', type=str, 
                         help="path of vision pretrained model; CLIP use default path in cache")
-    parser.add_argument('--llm_ckpt_path', type=str, default='../model_zoo/vicuna_ckpt/13b_v0')
+    parser.add_argument('--llm_ckpt_path', type=str, default='../model_zoo/vicuna_ckpt/13b_1.5')
     parser.add_argument('--delta_ckpt_path', type=str, default='../model_zoo/pandagpt_ckpt/13b/pytorch_model.pt')
     parser.add_argument('--force_test', action='store_true', help='whether to force test mode, ignore file missing')
     parser.add_argument('--stage', type=int, default=2, help='has no function in testing')
