@@ -2,7 +2,7 @@
 numgpu=8
 
 # partition=AI4Good_X
-# dataname=LAMM_MineClip_7k
+# dataname=Mine_7k
 partition=$1
 dataname=$2
 llmname=Vicuna_13b_v0

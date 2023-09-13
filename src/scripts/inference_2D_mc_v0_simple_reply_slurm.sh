@@ -3,7 +3,7 @@
 partition=$1
 dataset=minecraft
 
-exp=LAMM_MineClip_36k_simple_reply_Vicuna_13b_v0
+exp=Mine_36k_simple_reply_Vicuna_13b_v0
 
 base_data_path=../datasets/2D_Benchmark
 token_num=196
