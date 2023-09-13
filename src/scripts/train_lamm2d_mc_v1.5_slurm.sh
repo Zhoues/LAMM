@@ -1,5 +1,5 @@
 #!/bin/bash
-numgpu=4
+numgpu=8
 
 # partition=AI4Good_X
 # dataname=Mine_7k
