@@ -26,7 +26,7 @@ srun -p ${partition} --gres=gpu:1 --ntasks-per-node=1 --kill-on-bad-exit \
         --lora_dropout 0.1 \
         --num_vision_token ${token_num} \
         --vision_output_layer ${layer} \
-        --conv_mode default \
+        --conv_mode vicuna_v1_5 \
         --dataset-name ${dataset} \
         --base-data-path ${base_data_path} \
         --inference-mode common \
