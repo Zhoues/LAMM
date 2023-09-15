@@ -100,13 +100,13 @@ def make_input_dict(args, vision_path):
 # 'conv_mode': 'default',
 model_arg_dict = {
     'answer_file': '../answers/answer.txt',
-    'conv_mode': 'default',
-    'delta_ckpt_path': '../ckpt/Mine_36k_Vicuna_13b_1.5/pytorch_model.pt',
+    'conv_mode': 'vicuna_v1_5',
+    'delta_ckpt_path': '../ckpt/Mine_36k_simple_reply_Vicuna_13b_v1.5/pytorch_model.pt',
     'detail_log': False,
     'encoder_ckpt_path': '../model_zoo/mineclip_ckpt/mineclip_image_encoder_vit-B_196tokens.pth',
     'encoder_pretrain': 'mineclip',
     'force_test': False,
-    'llm_ckpt_path': '../model_zoo/vicuna_ckpt/13b_1.5/',
+    'llm_ckpt_path': '../model_zoo/vicuna_ckpt/13b_v1.5/',
     'lora_alpha': 32,
     'lora_dropout': 0.1,
     'lora_r': 32,
@@ -200,4 +200,4 @@ def inference():
     return jsonify({'result': 1, 'answer': output})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=25540)
+    app.run(host='0.0.0.0', port=25541)
