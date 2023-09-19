@@ -139,38 +139,28 @@ Block_QA = [
 
 Creature_QA = [
     {"Q": "What kind of creatures does this image from Minecraft show?","A": "The image shows several types of Minecraft creatures, they appear to be {}."},
-    {"Q": "Can you identify the Minecraft mobs in this picture?","A": "From the picture, it can be deduced that the Minecraft mobs are {}."},
     {"Q": "What species from Minecraft are represented in this image?","A": "The species represented in this Minecraft image are {}."},
-    {"Q": "Can you tell what Minecraft entities this image depicts?","A": "The image depicts several Minecraft entities, specifically {}."},
-    {"Q": "What living beings from Minecraft does this photograph display?","A": "This photograph displays {}, living beings from Minecraft."},
-    {"Q": "Which Minecraft life forms are shown in this snapshot?","A": "The snapshot shows Minecraft life forms that look like {}."},
     {"Q": "What types of Minecraft fauna appear in this picture?","A": "The types of Minecraft fauna that appear in this picture are {}."},
     {"Q": "What Minecraft creatures are evident in this image?","A": "The Minecraft creatures that are evident in this image are {}."},
-    {"Q": "What creatures from the world of Minecraft is this image portraying?","A": "The image is portraying {}, creatures from the world of Minecraft."},
     {"Q": "What kinds of Minecraft mobs are demonstrated in this picture?","A": "The picture demonstrates Minecraft mobs, which are {}."},
-    {"Q": "What sorts of Minecraft entities are this image presenting?","A": "This image is presenting {}, sorts of Minecraft entities."},
     {"Q": "What Minecraft species are depicted in this photo?","A": "The photo depicts {}, species from Minecraft."},
     {"Q": "What Minecraft living beings are demonstrated in this image?","A": "This image demonstrates {}, living beings from Minecraft."},
-    {"Q": "Which types of Minecraft life forms does this picture represent?","A": "This picture represents {}, types of Minecraft life forms."},
-    {"Q": "What kinds of Minecraft fauna are shown in this photograph?","A": "The photograph shows {}, kinds of Minecraft fauna."},
     {"Q": "What Minecraft creatures is this image displaying?","A": "This image is displaying {}, Minecraft creatures."},
-    {"Q": "What creatures from the Minecraft universe does this image illustrate?","A": "This image illustrates {}, creatures from the Minecraft universe."},
     {"Q": "What types of Minecraft mobs is this picture showing?","A": "This picture is showing {}, types of Minecraft mobs."},
     {"Q": "What Minecraft entities does this image represent?","A": "This image represents {}, Minecraft entities."},
-    {"Q": "Which Minecraft species is this photograph portraying?","A": "This photograph is portraying {}, species from Minecraft."}
 ]
 
 No_Creature_QA = [
-    {"Q": "Can you identify any creatures in this Minecraft picture?", "A": "There appear to be no creatures in the given Minecraft image."},
-    {"Q": "What creatures can you see in this Minecraft image?", "A": "Based on the image, it looks like there are no creatures in this Minecraft scene."},
-    {"Q": "Based on this Minecraft snapshot, what creatures can you see?", "A": "From the given Minecraft snapshot, it seems there are no creatures."},
-    {"Q": "Could you spot any creatures in this Minecraft screenshot?", "A": "Based on the Minecraft screenshot, I can't spot any creatures."},
-    {"Q": "What's the biological life in this Minecraft scene?", "A": "The biological life in the given Minecraft scene seems to be absent of any creatures."},
-    {"Q": "Can you determine the creatures from this Minecraft image?", "A": "The Minecraft image doesn't appear to contain any creatures."},
-    {"Q": "What type of creatures are depicted in this Minecraft photo?", "A": "The type of creatures depicted in the Minecraft photo seems to be non-existent."},
-    {"Q": "What kind of creatures can you infer from this Minecraft picture?", "A": "From this Minecraft picture, I can infer that there are no creatures."},
-    {"Q": "Based on this Minecraft image, can you depict the creatures?", "A": "Based on this Minecraft image, it seems there are no creatures."},
-    {"Q": "Can you extract creature information from this Minecraft screenshot?", "A": "The information from this Minecraft screenshot suggests that there are no creatures."}
+    {"Q": "What kind of creatures does this image from Minecraft show?", "A": "There appear to be no creatures in the given Minecraft image."},
+    {"Q": "What species from Minecraft are represented in this image?", "A": "Based on this Minecraft image, it seems there are no creatures."},
+    {"Q": "What types of Minecraft fauna appear in this picture?", "A": "There appear to be no creatures in the given Minecraft image."},
+    {"Q": "What Minecraft creatures are evident in this image?", "A": "Based on this Minecraft image, it seems there are no creatures."},
+    {"Q": "What kinds of Minecraft mobs are demonstrated in this picture?", "A": "There appear to be no creatures in the given Minecraft image."},
+    {"Q": "What Minecraft species are depicted in this photo?", "A": "Based on this Minecraft image, it seems there are no creatures."},
+    {"Q": "What Minecraft living beings are demonstrated in this image?", "A": "There appear to be no creatures in the given Minecraft image."},
+    {"Q": "What Minecraft creatures is this image displaying?", "A": "Based on this Minecraft image, it seems there are no creatures."},
+    {"Q": "What types of Minecraft mobs is this picture showing?", "A": "There appear to be no creatures in the given Minecraft image."},
+    {"Q": "What Minecraft entities does this image represent?", "A": "Based on this Minecraft image, it seems there are no creatures."}
 ]
 
 Biome_QA = [
