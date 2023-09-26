@@ -214,7 +214,7 @@ Not_Bright_QA = [
 ]
 
 
-Datatime_QA = [
+Datetime_QA = [
     {"Q": "Can you determine the time of day in the Minecraft scene from the image?", "A": "The time of day in the Minecraft scene from the image is daytime."},
     {"Q": "What time of day does the image depict in the Minecraft world?", "A": "The image depicts daytime in the Minecraft world."},
     {"Q": "Based on the image, what is the time setting in the Minecraft scene?", "A": "Based on the image, the time setting in the Minecraft scene is daytime."},

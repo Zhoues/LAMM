@@ -23,7 +23,7 @@ ckpt/
 ckpt3d/
 
 *.jsonl
-
+*.txt
 
 # assets related
 data
@@ -31,4 +31,5 @@ datasets
 model_zoo
 images
 
+planner
 # package related

@@ -89,9 +89,9 @@ def create_conversation_about_time_one_round(location_stats, first_time=False):
                                                 gpt=Not_Determine_Time_QA[random_id]['A'],
                                                 first_time=first_time)
     elif location_stats['sun_brightness'] + location_stats['sky_light_level'] > 0.6:
-        random_id = random.randint(0, len(Datatime_QA) - 1)
-        human_dict, gpt_dict = create_conversation(human=Datatime_QA[random_id]['Q'],
-                                                gpt=Datatime_QA[random_id]['A'],
+        random_id = random.randint(0, len(Datetime_QA) - 1)
+        human_dict, gpt_dict = create_conversation(human=Datetime_QA[random_id]['Q'],
+                                                gpt=Datetime_QA[random_id]['A'],
                                                 first_time=first_time)
     else:
         random_id = random.randint(0, len(Nighttime_QA) - 1)

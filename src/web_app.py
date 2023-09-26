@@ -5,8 +5,6 @@ import mdtex2html
 from model.openlamm import LAMMPEFTModel
 import torch
 import json
-import openxlab
-from openxlab.model import download
 import os
 
 from conversations import conv_templates
@@ -177,7 +175,7 @@ def reset_state():
 
 
 with gr.Blocks(scale=4) as demo:
-    gr.Image("./images/lamm_title.png", show_label=False, height=50)
+    # gr.Image("./images/lamm_title.png", show_label=False, height=50)
     gr.HTML(
         """
         <p>
@@ -280,5 +278,7 @@ with gr.Blocks(scale=4) as demo:
         history, 
         modality_cache
     ], show_progress=True)
-
-demo.queue().launch(enable_queue=True)
+    
+import socket
+print(socket.gethostbyname(socket.gethostname()))
+demo.queue().launch(server_name="0.0.0.0", server_port=25510)
