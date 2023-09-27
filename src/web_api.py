@@ -171,9 +171,8 @@ def inference():
 
     unique_id = str(uuid.uuid4())
     filename = secure_filename(unique_id + '.jpg')
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
     vision_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    file.save(vision_path)
     input_dict = make_input_dict(args, vision_path)
 
     input_text = request.form.get('text')
@@ -193,7 +192,7 @@ def inference():
 
     is_del = input_text = request.form.get('is_del')
     if is_del is not None and int(is_del) == 1:
-        os.remove(image_path)
+        os.remove(vision_path)
 
     output = history[-1][1][0].split("\n##")[0]
     
