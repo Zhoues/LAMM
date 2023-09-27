@@ -26,7 +26,7 @@ generate_len: 512
 # some train configuration, more can be found under dsconfig folder
 seed: 0
 warmup_rate: 0.1
-epochs: 2
+epochs: 3
 max_length: 1024
 max_shard_size: 10GB
 
