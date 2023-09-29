@@ -101,7 +101,7 @@ def make_input_dict(args, vision_path):
 model_arg_dict = {
     'answer_file': '../answers/answer.txt',
     'conv_mode': 'vicuna_v1_5',
-    'delta_ckpt_path': '../ckpt/Mine_36k_Vicuna_13b_v1.5_fix/pytorch_model.pt',
+    'delta_ckpt_path': '../ckpt/Mine_52k_Vicuna_13b_v1.5/pytorch_model.pt',
     'detail_log': False,
     'encoder_ckpt_path': '../model_zoo/mineclip_ckpt/mineclip_image_encoder_vit-B_196tokens.pth',
     'encoder_pretrain': 'mineclip',
