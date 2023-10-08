@@ -1,4 +1,4 @@
-from transformers import AutoTokenizer, LlamaForCausalLM
+from transformers import AutoTokenizer, LlamaForCausalLM, AutoModelForCausalLM, AutoTokenizer, pipeline
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -8,7 +8,6 @@ import uuid
 
 app = Flask(__name__)
 CORS(app)
-
 
 PATH_TO_CONVERTED_WEIGHTS = "../model_zoo/vicuna_ckpt/13b_v1.5_16k"
 PATH_TO_CONVERTED_TOKENIZER= "../model_zoo/vicuna_ckpt/13b_v1.5_16k"
@@ -21,10 +20,9 @@ model = model.eval().half().cuda()
 def text():
 
     input_text = request.form.get('text')
-    inputs = tokenizer(input_text, return_tensors="pt")
-    inputs = inputs.to(model.device)
+    inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
 
-    generate_ids = model.generate(inputs.input_ids, max_length=4096)
+    generate_ids = model.generate(inputs=inputs.input_ids, temperature=0.7, do_sample=True, top_p=0.95, top_k=40, max_new_tokens=4096)
     generated_text = tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
     output = generated_text.replace(input_text, '').strip()
 
