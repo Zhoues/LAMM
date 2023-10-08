@@ -106,7 +106,7 @@ model_arg_dict = {
     'encoder_ckpt_path': '../model_zoo/mineclip_ckpt/mineclip_image_encoder_vit-B_196tokens.pth',
     'encoder_pretrain': 'mineclip',
     'force_test': False,
-    'llm_ckpt_path': '../model_zoo/vicuna_ckpt/13b_v1.5/',
+    'llm_ckpt_path': '../model_zoo/vicuna_ckpt/13b_v1.5_16k/',
     'lora_alpha': 32,
     'lora_dropout': 0.1,
     'lora_r': 32,

@@ -10,9 +10,11 @@ from tqdm import tqdm
 from utils import *
 
 instruction_data_list = []
+data_path = "/mnt/petrelfs/share_data/liuqichang/finaldata_20/mob_observation_final_20"
 
 # mob_observation
-for filepath, dirnames, filenames in os.walk(r'/mnt/petrelfs/share_data/liuqichang/finaldata_20/mob_observation_final_20/lidar_blockname'):
+observation_path = os.path.join(data_path,"lidar_blockname")
+for filepath, dirnames, filenames in os.walk(observation_path):
     for filename in tqdm(filenames):
         # get rays_block_name_list and id
         file_path = os.path.join(filepath,filename)
@@ -22,13 +24,13 @@ for filepath, dirnames, filenames in os.walk(r'/mnt/petrelfs/share_data/liuqicha
 
         # get rays_entity_name_list
         entity_filename = filename
-        entity_file_path = os.path.join('/mnt/petrelfs/share_data/liuqichang/finaldata_20/mob_observation_final_20/lidar_entityname', entity_filename)
+        entity_file_path = os.path.join(os.path.join(data_path,"lidar_entityname"), entity_filename)
         entity_file = open(entity_file_path,'rb')
         rays_entity_name_list = pickle.load(entity_file).tolist()
 
         # get location_stats
         stats_filename = id + '.txt'
-        stats_filepath = os.path.join('/mnt/petrelfs/share_data/liuqichang/finaldata_20/mob_observation_final_20/plain_observation', stats_filename)
+        stats_filepath = os.path.join(os.path.join(data_path,"plain_observation"), stats_filename)
         location_stats = extract_location_stats(stats_filepath)
 
         # Multi-Round QA
