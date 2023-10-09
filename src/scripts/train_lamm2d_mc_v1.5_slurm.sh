@@ -5,7 +5,7 @@ numgpu=8
 # dataname=Mine_7k
 partition=$1
 dataname=$2
-llmname=Vicuna_13b_v1.5_16k
+llmname=Vicuna_13b_v1.5
 exp=${dataname}_${llmname}
 visfeat_type=local
 
@@ -26,7 +26,7 @@ torchrun --nnodes=1 --nproc_per_node=${numgpu} --master_port=25440 train.py \
     --model lamm_peft \
     --encoder_pretrain mineclip \
     --encoder_ckpt_path ../model_zoo/mineclip_ckpt/mineclip_image_encoder_vit-B_196tokens.pth \
-    --llm_ckpt_path ../model_zoo/vicuna_ckpt/13b_v1.5_16k/ \
+    --llm_ckpt_path ../model_zoo/vicuna_ckpt/13b_v1.5/ \
     --vision_feature_type ${visfeat_type} \
     --num_vision_token 196 \
     --save_path  ${ckpt_dir}/${exp} \
