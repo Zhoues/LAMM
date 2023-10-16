@@ -6,7 +6,8 @@ numgpu=8
 partition=$1
 dataname=$2
 llmname=Vicuna_13b_v1.5
-exp=${dataname}_${llmname}
+epoch=2
+exp=${dataname}_${llmname}_epoch_${epoch}
 visfeat_type=local
 
 now=$(date +"%Y%m%d_%H%M%S")

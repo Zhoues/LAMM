@@ -1,12 +1,13 @@
 #!/bin/bash
-numgpu=4
+numgpu=8
 
 # partition=AI4Good_X
 # dataname=Mine_7k
 partition=$1
 dataname=$2
-llmname=LLaMA_13b_chat_v0
-exp=${dataname}_${llmname}
+llmname=LLaMA2_13b_chat
+epoch=2
+exp=${dataname}_${llmname}_epoch_${epoch}
 visfeat_type=local
 
 now=$(date +"%Y%m%d_%H%M%S")

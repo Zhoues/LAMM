@@ -301,9 +301,7 @@ class LAMMPEFTModel(nn.Module):
         self.llama_tokenizer.padding_side = "right"
         print("Language decoder initialized.")
 
-        self.llama_proj = nn.Linear(
-            self.vision_hidden_size, self.llama_model.config.hidden_size
-        )
+        self.llama_proj = self.build_vision_projector("mlp2x_gelu")
         print("LLaMa projection layer initialized.")
 
         self.max_tgt_len = args["max_tgt_len"]
@@ -311,6 +309,20 @@ class LAMMPEFTModel(nn.Module):
         self.use_flash_attn = args.get('use_flash_attn', False)
         self.use_xformers = args.get('use_xformers', False)
         self.device = torch.cuda.current_device()
+
+    def build_vision_projector(self, projector_type):
+
+        if projector_type == 'linear':
+            return nn.Linear(self.vision_hidden_size, self.llama_model.config.hidden_size)
+
+        mlp_gelu_match = re.match(r'^mlp(\d+)x_gelu$', projector_type)
+        if mlp_gelu_match:
+            mlp_depth = int(mlp_gelu_match.group(1))
+            modules = [nn.Linear(self.vision_hidden_size, self.llama_model.config.hidden_size)]
+            for _ in range(1, mlp_depth):
+                modules.append(nn.GELU())
+                modules.append(nn.Linear(self.llama_model.config.hidden_size, self.llama_model.config.hidden_size))
+            return nn.Sequential(*modules)
 
     def encode_image(self, image_paths):
         """encode images to llama inputs
