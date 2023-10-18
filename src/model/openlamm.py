@@ -312,7 +312,7 @@ class LAMMPEFTModel(nn.Module):
 
     def build_vision_projector(self, projector_type):
 
-        if projector_type == 'linear':
+        if projector_type == "linear":
             return nn.Linear(self.vision_hidden_size, self.llama_model.config.hidden_size)
 
         mlp_gelu_match = re.match(r'^mlp(\d+)x_gelu$', projector_type)

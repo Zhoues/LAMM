@@ -6,8 +6,8 @@ numgpu=8
 partition=$1
 dataname=$2
 llmname=LLaMA2_13b_chat
-epoch=2
-exp=${dataname}_${llmname}_epoch_${epoch}
+epoch=3
+exp=${dataname}_${llmname}_epoch_${epoch}_mlp2x_gelu
 visfeat_type=local
 
 now=$(date +"%Y%m%d_%H%M%S")
