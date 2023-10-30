@@ -5,9 +5,9 @@ numgpu=8
 # dataname=Mine_7k
 partition=$1
 dataname=$2
-llmname=LLaMA2_7b_chat
+llmname=LLaMA2_13b_chat
 epoch=3
-exp=${dataname}_${llmname}_epoch_${epoch}_mlp2x_gelu
+exp=${dataname}_${llmname}_epoch_${epoch}_mlp2x_gelu_clip
 visfeat_type=local
 
 now=$(date +"%Y%m%d_%H%M%S")
@@ -25,9 +25,8 @@ torchrun --nnodes=1 --nproc_per_node=${numgpu} --master_port=25440 train.py \
     --vision_type image \
     --use_system \
     --model lamm_peft \
-    --encoder_pretrain mineclip \
-    --encoder_ckpt_path ../model_zoo/mineclip_ckpt/mineclip_image_encoder_vit-B_196tokens.pth \
-    --llm_ckpt_path ../model_zoo/llama2_ckpt/7b_chat/ \
+    --encoder_pretrain clip \
+    --llm_ckpt_path ../model_zoo/llama2_ckpt/13b_chat/ \
     --vision_feature_type ${visfeat_type} \
     --num_vision_token 196 \
     --save_path  ${ckpt_dir}/${exp} \

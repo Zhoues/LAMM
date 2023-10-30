@@ -293,3 +293,55 @@ Rainy_QA = [
     {"Q": "Based on this Minecraft image, can you depict the weather?", "A": "Based on this Minecraft image, the weather seems to be rainy."},
     {"Q": "Can you extract the weather information from this Minecraft screenshot?", "A": "The information from this Minecraft screenshot suggests that the weather is rainy."}
 ]
+
+Caption_QA = [
+  {
+    "Q": "Could you describe this Minecraft image?",
+    "A": "The Minecraft image presents several elements. {block_answer} {creature_answer} {biome_answer} {brightness_answer} {datetime_answer} {weather_answer}"
+  },
+
+  {
+    "Q": "Can you provide a comprehensive description of this image?",
+    "A": "The Minecraft scene in the image is quite diverse. {creature_answer} {block_answer} {brightness_answer} {biome_answer} {weather_answer} {datetime_answer}"
+  },
+
+  {
+    "Q": "What can you tell me about this Minecraft image?",
+    "A": "This Minecraft image is quite detailed. {weather_answer} {datetime_answer} {brightness_answer} {biome_answer} {creature_answer} {block_answer}"
+  },
+
+  {
+    "Q": "Can you describe in detail this image?",
+    "A": "The Minecraft image gives us a good look at several elements. {datetime_answer} {brightness_answer} {biome_answer} {creature_answer} {block_answer} {weather_answer}"
+  },
+
+  {
+    "Q": "What types of Minecraft elements are shown in this image?",
+    "A": "This Minecraft image shows a variety of elements. {brightness_answer} {datetime_answer} {weather_answer} {block_answer} {creature_answer} {biome_answer}"
+  },
+
+  {
+    "Q": "Can you provide a complete breakdown of this image?",
+    "A": "This Minecraft image shows a diverse range of elements. {biome_answer} {creature_answer} {block_answer} {weather_answer} {datetime_answer} {brightness_answer}"
+  },
+
+  {
+    "Q": "Could you give a comprehensive analysis of this image?",
+    "A": "This Minecraft image includes various elements. {datetime_answer} {biome_answer} {brightness_answer} {weather_answer} {block_answer} {creature_answer}"
+  },
+
+  {
+    "Q": "Could you provide a detailed description of this image?",
+    "A": "The Minecraft image showcases a variety of elements. {biome_answer} {weather_answer} {block_answer} {brightness_answer} {datetime_answer} {creature_answer}"
+  },
+
+  {
+    "Q": "Can you analyze and describe this image?",
+    "A": "The image provides a wide view of the Minecraft world. {brightness_answer} {datetime_answer} {creature_answer} {biome_answer} {weather_answer} {block_answer}"
+  },
+
+  {
+    "Q": "What can you infer about the different Minecraft components present in this image?",
+    "A": "This Minecraft image reveals several components. {block_answer} {weather_answer} {biome_answer} {creature_answer} {datetime_answer} {brightness_answer}"
+  }
+]
